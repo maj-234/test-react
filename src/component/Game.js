@@ -56,6 +56,10 @@ function Game() {
         setCurrentMove(nextHistory.length - 1);
     }
 
+    function jumpTo(i) {
+        setCurrentMove(i);
+    }
+
     const move = history.map((e, i) => {
         let info;
         if (i === 0) {
@@ -66,7 +70,7 @@ function Game() {
         }
         return (
             <li key={i}>
-                <button>{info}</button>
+                <button onClick={() => jumpTo(i)}>{info}</button>
             </li>
         )
     });
